@@ -23,5 +23,6 @@ mode = true: convert hex to decimal
 mode = false: convert hex to bin
 */
 string convertHex(string hex, bool mode);
+void runMenu();
 
 #endif

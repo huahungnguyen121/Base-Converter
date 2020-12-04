@@ -140,3 +140,10 @@ string convertHex(string hex, bool mode)
 		return value;
 	}
 }
+
+void runMenu()
+{
+
+
+
+}
