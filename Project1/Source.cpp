@@ -155,7 +155,93 @@ string convertHex(string hex, bool mode)
 
 void runMenu()
 {
+	while (true) {
+		system("cls");
+		cout << "[Converter v1.0]\n\n";
 
+		cout << "=============Choose-Input-Base============\n";
+		cout << "1. Decimal\n";
+		cout << "2. Hexadecimal\n";
+		cout << "3. Binary\n";
+		cout << "4. Exit Program\n";
+		cout << "==========================================\n";
+		cout << "--> Your choice: \n";
+		string in = "";
+		getline(cin, in, '\n');
 
+		while (in.length() > 1 || (int)in[0] > 52 || (int)in[0] < 48) {
+			cout << "==========================================\n";
+			cout << "WRONG OPTION!!! Please Try Again\n";
+			cout << "--> Your choice: \n";
+			in = "";
+			getline(cin, in, '\n');
+		}
 
+		int fromBase = (int)in[0] - 48;
+
+		if (fromBase == 4)
+			break;
+
+		system("cls");
+		cout << "[Converter v1.0]\n\n";
+
+		cout << "========Choose-Base-Want-To-Convert=======\n";
+		cout << "1. Decimal\n";
+		cout << "2. Hexadecimal\n";
+		cout << "3. Binary\n";
+		cout << "4. Exit Program\n";
+		cout << "==========================================\n";
+		cout << "--> Your choice: \n";
+		in = "";
+		getline(cin, in, '\n');
+
+		while (in.length() > 1 || (int)in[0] > 52 || (int)in[0] < 48) {
+			cout << "==========================================\n";
+			cout << "WRONG OPTION!!! Please Try Again\n";
+			cout << "--> Your choice: \n";
+			in = "";
+			getline(cin, in, '\n');
+		}
+
+		int toBase = (int)in[0] - 48;
+
+		if (toBase == 4)
+			break;
+
+		system("cls");
+		cout << "[Converter v1.0]\n\n";
+
+		cout << "================Input-Data================\n";
+		cout << "--> Enter your number: \n";
+		in = "";
+		getline(cin, in, '\n');
+
+		cout << "==================Result==================\n";
+
+		if (fromBase == 1) {
+			if (toBase == 1)
+				cout << "--> " << in << endl;
+			if (toBase == 2)
+				cout << "--> " << convertDec(stoull(in), false) << endl;
+			if (toBase == 3)
+				cout << "--> " << convertDec(stoull(in), true) << endl;
+		}
+		if (fromBase == 2) {
+			if (toBase == 1)
+				cout << "--> " << convertHex(in, true) << endl;
+			if (toBase == 2)
+				cout << "--> " << in << endl;
+			if (toBase == 3)
+				cout << "--> " << convertHex(in, false) << endl;
+		}
+		if (fromBase == 3) {
+			if (toBase == 1)
+				cout << "--> " << convertBin(in, true) << endl;
+			if (toBase == 2)
+				cout << "--> " << convertBin(in, false) << endl;
+			if (toBase == 3)
+				cout << "--> " << in << endl;
+		}
+		system("pause");
+	}
 }
