@@ -8,6 +8,7 @@
 
 using namespace std;
 
+void convertToUpper(string& s);
 /*
 mode = true: convert x in decimal to binary
 mode = false: convert x in decimal to hex

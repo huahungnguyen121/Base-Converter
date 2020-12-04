@@ -3,6 +3,15 @@
 const string binToHex[16] = { "0000", "0001" , "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111" };
 const string HexSign[16] = { "0", "1" , "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F" };
 
+void convertToUpper(string& s)
+{
+	int len = s.length();
+	for (int i = 0; i < len; i++)
+	{
+		s[i] = (char)toupper(s[i]);
+	}
+}
+
 string convertDec(unsigned long long x, bool mode)
 {
 	string value = "";
@@ -115,6 +124,7 @@ string convertBin(string bin, bool mode)
 
 string convertHex(string hex, bool mode)
 {
+	convertToUpper(hex);
 	if (mode) { //to decimal
 		unsigned long long value = 0;
 		for (int i = hex.length() - 1; i > -1; i--) {
