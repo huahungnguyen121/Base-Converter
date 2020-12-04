@@ -12,8 +12,14 @@ void convertToUpper(string& s)
 	}
 }
 
-string convertDec(unsigned long long x, bool mode)
+string convertDec(string in, bool mode)
 {
+	for (size_t i = 0; i < in.length(); i++) {
+		if ((int)in[i] < 48 || (int)in[i] > 57)
+			return "INPUT ERROR";
+	}
+
+	unsigned long long x = stoull(in);
 	string value = "";
 
 	//to bin
@@ -235,9 +241,9 @@ void runMenu()
 			if (toBase == 1)
 				cout << "--> " << in << endl;
 			if (toBase == 2)
-				cout << "--> " << convertDec(stoull(in), false) << endl;
+				cout << "--> " << convertDec(in, false) << endl;
 			if (toBase == 3)
-				cout << "--> " << convertDec(stoull(in), true) << endl;
+				cout << "--> " << convertDec(in, true) << endl;
 		}
 		if (fromBase == 2) {
 			if (toBase == 1)

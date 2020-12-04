@@ -13,7 +13,7 @@ void convertToUpper(string& s);
 mode = true: convert x in decimal to binary
 mode = false: convert x in decimal to hex
 */
-string convertDec(unsigned long long x, bool mode);
+string convertDec(string in, bool mode);
 /*
 mode = true: convert bin to decimal
 mode = false: convert bin to hex
