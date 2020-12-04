@@ -18,5 +18,10 @@ mode = true: convert bin to decimal
 mode = false: convert bin to hex
 */
 string convertBin(string bin, bool mode);
+/*
+mode = true: convert hex to decimal
+mode = false: convert hex to bin
+*/
+string convertHex(string hex, bool mode);
 
 #endif

@@ -66,7 +66,7 @@ string convertDec(unsigned long long x, bool mode)
 
 string convertBin(string bin, bool mode)
 {
-	if (mode) {
+	if (mode) { //to decimal
 		unsigned long long value = 0;
 		for (int i = bin.length() - 1; i > -1 ; i--) {
 			value = value + stoi(bin.substr(bin.length() - 1 - i, 1)) * pow(2, i);
@@ -74,7 +74,7 @@ string convertBin(string bin, bool mode)
 
 		return to_string(value);
 	}
-	else {
+	else { //to hex
 		string value = "";
 		string temp = "";
 
@@ -100,6 +100,43 @@ string convertBin(string bin, bool mode)
 				}
 			}
 		}
+
+		return value;
+	}
+}
+
+string convertHex(string hex, bool mode)
+{
+	if (mode) { //to decimal
+		unsigned long long value = 0;
+		for (int i = hex.length() - 1; i > -1; i--) {
+			int temp = (int)hex[hex.length() - 1 - i];
+			if (temp > 64 && temp < 71)
+				temp -= 55;
+			else {
+				if (temp > 47 && temp < 58)
+					temp -= 48;
+				else return "INPUT ERROR";
+			}
+
+			value = value + temp * pow(16, i);
+		}
+
+		return to_string(value);
+	}
+	else { //to bin
+		string value = "";
+
+		for (int i = 0; i < hex.length(); i++) {
+			string buffer = hex.substr(i, 1);
+			for (size_t j = 0; j < 16; j++) {
+				if (buffer == HexSign[j])
+					value += binToHex[j];
+			}
+		}
+
+		size_t pos = value.find("1", 0);
+		value = value.substr(pos, value.length() - pos);
 
 		return value;
 	}
