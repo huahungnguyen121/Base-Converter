@@ -22,6 +22,9 @@ string convertDec(unsigned long long x, bool mode)
 		for (unsigned long long i = a.size(); i > 0; i--)
 			value += to_string(a[i - 1]);
 
+		size_t pos = value.find("1", 0);
+		value = value.substr(pos, value.length() - pos);
+
 		return value;
 	}
 	else { //to hex
