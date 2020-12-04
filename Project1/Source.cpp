@@ -47,8 +47,7 @@ string convertDec(unsigned long long x, bool mode)
 		for (int i = 0; i < a.size(); i += 4) {
 			string buffer = binTemp.substr(i, 4);
 			for (size_t j = 0; j < 16; j++) {
-				if (buffer == binToHex[j])
-				{
+				if (buffer == binToHex[j]) {
 					if (j != 0)
 						value += HexSign[j];
 					else {
